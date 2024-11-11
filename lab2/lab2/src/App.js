@@ -1,27 +1,60 @@
 import React, {useState, useEffect} from 'react';
-import useElementSize from './components/useElementSize';
+import useElementSize from './hooks/useElementSize';
+import Figure from './components/Figure';
 
 function App() {
-    const [elementRef, size, setSize] = useElementSize();
-    const [manualSize, setManualSize] = useState({width: size.width, height: size.height});
+    const [rectRef, rectSize, setRectSize] = useElementSize();
+    const [circleRef, circleSize, setCircleSize] = useElementSize();
+
+    const [manualRectSize, setManualRectSize] = useState({
+        width: rectSize.width,
+        height: rectSize.height,
+    });
+    const [manualCircleSize, setManualCircleSize] = useState({
+        width: circleSize.width,
+        height: circleSize.height,
+    });
+
     useEffect(() => {
-        if (elementRef.current) {
-            elementRef.current.style.width = `${manualSize.width}px`;
-            elementRef.current.style.height = `${manualSize.height}px`;
-            setSize({width: manualSize.width, height: manualSize.height});
+        if (rectRef.current) {
+            rectRef.current.style.width = `${manualRectSize.width}px`;
+            rectRef.current.style.height = `${manualRectSize.height}px`;
+            setRectSize({width: manualRectSize.width, height: manualRectSize.height});
         }
-    }, [manualSize, setSize, elementRef]);
-    const handleInputChange = (e) => {
-        const {name, value} = e.target;
-        setManualSize((prevSize) => ({...prevSize, [name]: parseInt(value, 10) || 0,}));
-    };
-    return (<div>
-        <div ref={elementRef} style={{backgroundColor: 'lightblue'}}> Слідкуй за зміною розмірів цього елемента.</div>
-        <p>Ширина: {size.width}px</p> <p>Висота: {size.height}px</p>
-        <div><label> Ширина (px): <input type="number" name="width" value={manualSize.width}
-                                         onChange={handleInputChange}/> </label> <label> Висота (px): <input
-            type="number" name="height" value={manualSize.height} onChange={handleInputChange}/> </label></div>
-    </div>);
+    }, [manualRectSize, setRectSize, rectRef]);
+
+    useEffect(() => {
+        if (circleRef.current) {
+            circleRef.current.style.width = `${manualCircleSize.width}px`;
+            circleRef.current.style.height = `${manualCircleSize.height}px`;
+            setCircleSize({width: manualCircleSize.width, height: manualCircleSize.height});
+        }
+    }, [manualCircleSize, setCircleSize, circleRef]);
+
+    return (
+        <div>
+            <Figure
+                refElement={rectRef}
+                size={rectSize}
+                manualSize={manualRectSize}
+                setManualSize={setManualRectSize}
+                label="Прямокутник:"
+                style={{backgroundColor: 'lightblue', border: '2px solid black'}}
+            />
+            <Figure
+                refElement={circleRef}
+                size={circleSize}
+                manualSize={manualCircleSize}
+                setManualSize={setManualCircleSize}
+                label="Коло:"
+                style={{
+                    backgroundColor: 'pink',
+                    border: '2px solid black',
+                    borderRadius: '50%',
+                }}
+            />
+        </div>
+    );
 }
 
 export default App;
