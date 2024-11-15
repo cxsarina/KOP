@@ -2,4 +2,7 @@
     font-family: Arial, sans-serif;
     margin: 20px;
 }
-
+.error {
+    color: red;
+    font-size: 12px;
+}

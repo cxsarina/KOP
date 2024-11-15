@@ -3,6 +3,7 @@ import { useForm, FormProvider } from 'react-hook-form';
 import NameSurname from './components/NameSurname';
 import FavoriteTech from "./components/FavoriteTech";
 import './App.css';
+import Team from "./components/Team";
 
 function App() {
     const methods = useForm();
@@ -17,6 +18,7 @@ function App() {
             <FormProvider {...methods}>
                 <form onSubmit={methods.handleSubmit(onSubmit)}>
                     <NameSurname />
+                    <Team />
                     <FavoriteTech />
                     <button type="submit">Submit</button>
                 </form>
