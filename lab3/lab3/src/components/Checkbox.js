@@ -1,12 +1,14 @@
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
 
-function Checkbox({ techOptions, label }) {
+function Checkbox({ techOptions, label, description }) {
     const { register, formState: { errors } } = useFormContext();
 
     return (
         <div className="form-group">
             <label>{label} *</label>
+            {description &&
+                <p className="description">{description}</p>}
             {techOptions.map((tech) => (
                 <div key={tech}>
                     <input type="checkbox" id={tech} value={tech} {...register("techToLearn", { required: "Це обов'язкове питання." })} />
