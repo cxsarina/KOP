@@ -6,7 +6,9 @@ function Checkbox({ techOptions, label, description }) {
 
     return (
         <div className="form-group">
-            <label>{label} *</label>
+            <label className="mainlabel">{label} *
+                {errors.techToLearn && <span className="error">{errors.techToLearn.message}</span>}
+            </label>
             {description &&
                 <p className="description">{description}</p>}
             {techOptions.map((tech) => (
@@ -20,7 +22,7 @@ function Checkbox({ techOptions, label, description }) {
                 <label htmlFor="otherTech">Друге:</label>
                 <input type="text" id="otherTechText" {...register("otherTechText")} />
             </div>
-            {errors.techToLearn && <span className="error">{errors.techToLearn.message}</span>}
+
         </div>
     );
 }

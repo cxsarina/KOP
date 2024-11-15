@@ -6,14 +6,16 @@ function TextInput({ label, id, description }) {
 
     return (
         <div className="form-group">
-            <label htmlFor={id}>{label} *</label>
+            <label className="mainlabel" htmlFor={id}>{label} *
+                {errors[id] && <span className="error">{errors[id].message}</span>}
+            </label>
             {description && <p className="description">{description}</p>}
             <input
                 type="text"
                 id={id}
                 {...register(id, { required: "Це обов'язкове питання." })}
             />
-            {errors[id] && <span className="error">{errors[id].message}</span>}
+
 
         </div>
     );

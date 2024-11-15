@@ -13,7 +13,13 @@ function TechLevel() {
 
     return (
         <div className="form-group">
-            <label>My current level on tech *</label>
+            <label className="mainlabel">My current level on tech *
+                {Object.keys(errors).length > 0 && (
+                    <div className="error">
+                        Це обов'язкове питання.
+                    </div>
+                )}
+            </label>
             <table>
                 <thead>
                 <tr>
@@ -41,11 +47,6 @@ function TechLevel() {
                 ))}
                 </tbody>
             </table>
-            {Object.keys(errors).length > 0 && (
-                <div className="error">
-                    Це обов'язкове питання.
-                </div>
-            )}
         </div>
     );
 }

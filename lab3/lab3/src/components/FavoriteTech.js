@@ -6,7 +6,9 @@ function FavoriteTech() {
 
     return (
         <div className="form-group">
-            <label>My favorite tech (best) *</label>
+            <label className="mainlabel" >My favorite tech (best) *
+                {errors.favoriteTech && <span className="error">{errors.favoriteTech.message}</span>}
+            </label>
             <div>
                 <input type="radio" id="vue" value="Vue" {...register("favoriteTech", { required: "Це обов'язкове питання." })} />
                 <label htmlFor="vue">Vue</label>
@@ -32,7 +34,6 @@ function FavoriteTech() {
                 <label htmlFor="other">Друге:</label>
                 <input type="text" id="otherText" {...register("otherText")} />
             </div>
-            {errors.favoriteTech && <span className="error">{errors.favoriteTech.message}</span>}
         </div>
     );
 }
