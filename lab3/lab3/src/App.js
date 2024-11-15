@@ -5,6 +5,7 @@ import FavoriteTech from "./components/FavoriteTech";
 import './App.css';
 import Team from "./components/Team";
 import TechToLearn from "./components/TechToLearn";
+import TechLevel from "./components/TechLevel";
 
 function App() {
     const methods = useForm();
@@ -22,6 +23,7 @@ function App() {
                     <Team />
                     <FavoriteTech />
                     <TechToLearn />
+                    <TechLevel />
                     <button type="submit">Submit</button>
                 </form>
             </FormProvider>
