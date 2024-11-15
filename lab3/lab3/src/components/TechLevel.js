@@ -17,7 +17,7 @@ function TechLevel() {
             <table>
                 <thead>
                 <tr>
-                    <th>Technology </th>
+                    <th>Technology</th>
                     {levels.map(level => (
                         <th key={level}>{level}</th>
                     ))}
@@ -43,9 +43,7 @@ function TechLevel() {
             </table>
             {Object.keys(errors).length > 0 && (
                 <div className="error">
-                    {Object.keys(errors).map((key) => (
-                        <p key={key}>{errors[key].message}</p>
-                    ))}
+                    Це обов'язкове питання.
                 </div>
             )}
         </div>
