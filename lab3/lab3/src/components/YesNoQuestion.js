@@ -5,7 +5,7 @@ function YesNoQuestion({ label, description, id }) {
     const { register, formState: { errors } } = useFormContext();
 
     return (
-        <div className="form-group">
+        <div className={`form-group ${errors[id] ? 'error-border' : ''}`}>
             <label className="mainlabel" htmlFor={id}>
                 {label} *
                 {errors[id] && <span className="error">{errors[id].message}</span>}
@@ -24,3 +24,4 @@ function YesNoQuestion({ label, description, id }) {
 }
 
 export default YesNoQuestion;
+

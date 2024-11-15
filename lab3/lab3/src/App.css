@@ -1,16 +1,20 @@
-body{
+body {
     background-color: #9f5ca4;
 }
+
 .App {
     font-family: Arial, sans-serif;
     margin: 20px;
 }
-h1{
+
+h1 {
     text-align: center;
 }
-.mainlabel{
+
+.mainlabel {
     font-weight: bold;
 }
+
 .error {
     color: red;
     font-size: 12px;
@@ -22,9 +26,11 @@ form {
     flex-direction: column;
     align-items: center;
 }
+
 .error-border {
     border-color: red;
 }
+
 .form-group {
     width: 50%;
     margin-bottom: 20px;
@@ -36,7 +42,11 @@ form {
     align-items: flex-start;
     background-color: rgba(223, 170, 255, 0.73);
 }
-button{
+.error-border {
+    border-color: red;
+}
+
+button {
     color: white;
     background-color: #fd00b7;
 }
