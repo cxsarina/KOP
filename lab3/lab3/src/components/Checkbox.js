@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
 
-function TechToLearn({ techOptions, label }) {
+function Checkbox({ techOptions, label }) {
     const { register, formState: { errors } } = useFormContext();
 
     return (
@@ -23,4 +23,4 @@ function TechToLearn({ techOptions, label }) {
     );
 }
 
-export default TechToLearn;
+export default Checkbox;
