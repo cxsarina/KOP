@@ -6,7 +6,7 @@ const DynamicPage = ({ type }) => {
 
     const titles = {
         home: 'Головна сторінка',
-        notebooks: 'Категорія: Ноутбуки та комп\'ютери',
+        notebooksandcomputers: 'Категорія: Ноутбуки та комп\'ютери',
         computers: 'Підкатегорія: Комп\'ютери',
         'artline-x43v45': 'Продукт: ARTLINE X43v45',
     };
@@ -21,7 +21,7 @@ const DynamicPage = ({ type }) => {
                 {type === 'home' && (
                     <Link to="/notebooksandcomputers">Перейти до категорії "Ноутбуки та Комп'ютери"</Link>
                 )}
-                {entity === 'notebooks' && (
+                {entity === 'notebooksandcomputers' && (
                     <Link to="/computers">Перейти до підкатегорії "Комп'ютери"</Link>
                 )}
                 {entity === 'computers' && (

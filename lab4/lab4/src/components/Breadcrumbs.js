@@ -2,8 +2,8 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const breadcrumbMap = {
-    notebooks: { label: 'Ноутбуки', parent: '/' },
-    computers: { label: 'Комп\'ютери', parent: '/notebooks' },
+    notebooksandcomputers: { label: 'Ноутбуки та Ком\'ютери', parent: '/' },
+    computers: { label: 'Комп\'ютери', parent: '/notebooksandcomputers' },
     'artline-x43v45': { label: 'ARTLINE X43v45', parent: '/computers' },
 };
 

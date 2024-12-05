@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Breadcrumbs from './components/Breadcrumbs';
 import DynamicPage from './pages/DynamicPage';
+import './App.css';
 
 const App = () => {
     return (
