@@ -1,12 +1,15 @@
 import React from 'react';
-import useTodoStore from '../store/todoStore';
+import { useAtom } from 'jotai';
+import { todosAtom, toggleTodoAtom, deleteTodoAtom } from '../store/todoAtoms';
 
 const TodoList = () => {
-    const { todos, toggleTodo, deleteTodo } = useTodoStore();
+    const [todos] = useAtom(todosAtom);
+    const toggleTodo = useAtom(toggleTodoAtom)[1];
+    const deleteTodo = useAtom(deleteTodoAtom)[1];
 
     return (
         <div>
-            <h2>Список завдань:</h2>
+            <h2>Список завдань: </h2>
             <ul>
                 {todos.map((todo) => (
                     <li key={todo.id} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>

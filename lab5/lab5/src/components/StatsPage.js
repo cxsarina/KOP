@@ -1,8 +1,9 @@
 import React from 'react';
-import useTodoStore from '../store/todoStore';
+import { useAtom } from 'jotai';
+import { todosAtom } from '../store/todoAtoms';
 
 const StatsPage = () => {
-    const todos = useTodoStore((state) => state.todos);
+    const [todos] = useAtom(todosAtom);
 
     const total = todos.length;
     const completed = todos.filter((todo) => todo.completed).length;

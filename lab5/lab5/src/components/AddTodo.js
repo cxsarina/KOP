@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import useTodoStore from '../store/todoStore';
+import { useAtom } from 'jotai';
+import { addTodoAtom } from '../store/todoAtoms';
 
 const AddTodo = () => {
     const [task, setTask] = useState('');
-    const addTodo = useTodoStore((state) => state.addTodo);
+    const addTodo = useAtom(addTodoAtom)[1];
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,3 +28,4 @@ const AddTodo = () => {
 };
 
 export default AddTodo;
+
