@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1a5bc4a3-0b14-4f18-a23b-86101103dedc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Breadcrumbs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Breadcrumbs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/DynamicPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/DynamicPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +41,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "lab4",
+    "last_opened_file_path": "F:/university/REACT/lab5",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -63,7 +61,8 @@
       <updated>1733392332638</updated>
       <workItem from="1733392335963" duration="2058000" />
       <workItem from="1733401482319" duration="2224000" />
-      <workItem from="1733429218637" duration="3979000" />
+      <workItem from="1733429218637" duration="4626000" />
+      <workItem from="1733489583737" duration="26000" />
     </task>
     <servers />
   </component>
