@@ -9,12 +9,34 @@ const TodoList = () => {
 
     return (
         <div>
-            <h2>Список завдань</h2>
-            <ul>
+            <h2>Список завдань: </h2>
+            <ul style={{ listStyleType: 'none', padding: 0 }}>
                 {todos.map((todo) => (
-                    <li key={todo.id} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
-                        <span onClick={() => toggleTodo(todo.id)}>{todo.task}</span>
-                        <button onClick={() => deleteTodo(todo.id)}>Видалити</button>
+                    <li
+                        key={todo.id}
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            marginBottom: '10px',
+                        }}
+                    >
+                        <input
+                            type="checkbox"
+                            checked={todo.completed}
+                            onChange={() => toggleTodo(todo.id)}
+                            style={{ marginRight: '10px' }}
+                        />
+                        <span
+                            style={{
+                                textDecoration: todo.completed ? 'line-through' : 'none',
+                                marginRight: '10px',
+                            }}
+                        >
+              {todo.task}
+            </span>
+                        <button onClick={() => deleteTodo(todo.id)} style={{ padding: '5px 10px' }}>
+                            Видалити
+                        </button>
                     </li>
                 ))}
             </ul>
@@ -23,4 +45,3 @@ const TodoList = () => {
 };
 
 export default TodoList;
-
