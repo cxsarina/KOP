@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
 import StatsPage from './components/StatsPage';
+import './App.css';
 
 const App = () => {
     return (
         <Router>
-            <div>
+            <div className="app-container">
                 <nav>
                     <Link to="/">Список завдань</Link> | <Link to="/stats">Статистика</Link>
                 </nav>
@@ -16,7 +17,7 @@ const App = () => {
                         path="/"
                         element={
                             <div>
-                                <h1>To do List:</h1>
+                                <h1>Todo List</h1>
                                 <AddTodo />
                                 <TodoList />
                             </div>
@@ -30,4 +31,3 @@ const App = () => {
 };
 
 export default App;
-

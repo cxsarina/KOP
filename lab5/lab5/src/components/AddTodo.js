@@ -21,6 +21,13 @@ const AddTodo = () => {
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
                 placeholder="Додати завдання"
+                style={{
+                    marginRight: '10px',
+                    width: '300px',
+                    padding: '8px',
+                    borderRadius: '5px',
+                    border: '1px solid #ddd',
+                }}
             />
             <button type="submit">Додати</button>
         </form>

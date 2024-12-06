@@ -6,20 +6,12 @@ const TodoList = () => {
     const [todos] = useAtom(todosWithPersistenceAtom);
     const toggleTodo = useAtom(toggleTodoAtom)[1];
     const deleteTodo = useAtom(deleteTodoAtom)[1];
-
     return (
         <div>
-            <h2>Список завдань: </h2>
-            <ul style={{ listStyleType: 'none', padding: 0 }}>
+            <h2>Список завдань</h2>
+            <ul>
                 {todos.map((todo) => (
-                    <li
-                        key={todo.id}
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            marginBottom: '10px',
-                        }}
-                    >
+                    <li key={todo.id}>
                         <input
                             type="checkbox"
                             checked={todo.completed}
@@ -27,16 +19,12 @@ const TodoList = () => {
                             style={{ marginRight: '10px' }}
                         />
                         <span
-                            style={{
-                                textDecoration: todo.completed ? 'line-through' : 'none',
-                                marginRight: '10px',
-                            }}
+                            className={`todo-text ${todo.completed ? 'completed' : ''}`}
+                            onClick={() => toggleTodo(todo.id)}
                         >
               {todo.task}
             </span>
-                        <button onClick={() => deleteTodo(todo.id)} style={{ padding: '5px 10px' }}>
-                            Видалити
-                        </button>
+                        <button onClick={() => deleteTodo(todo.id)}>Видалити</button>
                     </li>
                 ))}
             </ul>
