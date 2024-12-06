@@ -1,9 +1,9 @@
 import React from 'react';
 import { useAtom } from 'jotai';
-import { todosAtom } from '../store/todoAtoms';
+import { todosWithPersistenceAtom } from '../store/todoAtoms';
 
 const StatsPage = () => {
-    const [todos] = useAtom(todosAtom);
+    const [todos] = useAtom(todosWithPersistenceAtom);
 
     const total = todos.length;
     const completed = todos.filter((todo) => todo.completed).length;
@@ -11,7 +11,7 @@ const StatsPage = () => {
 
     return (
         <div>
-            <h2>Статистика</h2>
+            <h2>Статистика:</h2>
             <p>Усього завдань: {total}</p>
             <p>Виконано: {completed}</p>
             <p>Залишилось: {remaining}</p>

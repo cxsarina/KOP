@@ -1,32 +1,46 @@
 import { atom } from 'jotai';
 
-export const todosAtom = atom([]); // Головний атом для списку завдань
+const loadTodos = () => {
+    const storedTodos = localStorage.getItem('todos');
+    return storedTodos ? JSON.parse(storedTodos) : [];
+};
+export const todosAtom = atom(loadTodos());
 
+export const todosWithPersistenceAtom = atom(
+    (get) => get(todosAtom),
+    (get, set, newTodos) => {
+        set(todosAtom, newTodos);
+        localStorage.setItem('todos', JSON.stringify(newTodos));
+    }
+);
 export const addTodoAtom = atom(
     null,
     (get, set, task) => {
-        const currentTodos = get(todosAtom);
-        set(todosAtom, [...currentTodos, { id: Date.now(), task, completed: false }]);
+        const currentTodos = get(todosWithPersistenceAtom);
+        const updatedTodos = [
+            ...currentTodos,
+            { id: Date.now(), task, completed: false },
+        ];
+        set(todosWithPersistenceAtom, updatedTodos);
     }
 );
 
 export const toggleTodoAtom = atom(
     null,
     (get, set, id) => {
-        const currentTodos = get(todosAtom);
-        set(
-            todosAtom,
-            currentTodos.map((todo) =>
-                todo.id === id ? { ...todo, completed: !todo.completed } : todo
-            )
+        const currentTodos = get(todosWithPersistenceAtom);
+        const updatedTodos = currentTodos.map((todo) =>
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
         );
+        set(todosWithPersistenceAtom, updatedTodos);
     }
 );
 
 export const deleteTodoAtom = atom(
     null,
     (get, set, id) => {
-        const currentTodos = get(todosAtom);
-        set(todosAtom, currentTodos.filter((todo) => todo.id !== id));
+        const currentTodos = get(todosWithPersistenceAtom);
+        const updatedTodos = currentTodos.filter((todo) => todo.id !== id);
+        set(todosWithPersistenceAtom, updatedTodos);
     }
 );
