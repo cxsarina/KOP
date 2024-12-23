@@ -1,17 +1,27 @@
 import React, { useState, useContext } from 'react';
 import { TodoContext } from '../context/TodoContext';
-import { motion } from 'framer-motion';
+import useDebounce from '../hooks/useDebounce'; 
 
 const AddTodo = () => {
     const [task, setTask] = useState('');
     const { addTodo } = useContext(TodoContext);
 
+    const debouncedTask = useDebounce(task, 500);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (task.trim()) {
-            addTodo(task);
-            setTask('');
+        if (!debouncedTask.trim()) {
+            alert('Завдання не може бути порожнім');
+            return;
         }
+
+        if (debouncedTask.length > 100) {
+            alert('Завдання занадто довге');
+            return;
+        }
+
+        addTodo(debouncedTask);
+        setTask('');
     };
 
     return (
@@ -29,14 +39,7 @@ const AddTodo = () => {
                     border: '1px solid #ddd',
                 }}
             />
-            <motion.button
-                type="submit"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-            >
-                Додати
-            </motion.button>
+            <button type="submit">Додати</button>
         </form>
     );
 };
