@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
 import './style/App.css';
-import ErrorBoundary from './components/ErrorBoundary';  // Додаємо імпорт
+import ErrorBoundary from './components/ErrorBoundary';
 
 const StatsPage = lazy(() => import('./components/StatsPage'));
 
