@@ -1,11 +1,9 @@
-import React from 'react';
-import { useAtom } from 'jotai';
-import { todosWithPersistenceAtom, toggleTodoAtom, deleteTodoAtom } from '../store/todoAtoms';
+import React, { useContext } from 'react';
+import { TodoContext } from '../context/TodoContext';
 
 const TodoList = () => {
-    const [todos] = useAtom(todosWithPersistenceAtom);
-    const toggleTodo = useAtom(toggleTodoAtom)[1];
-    const deleteTodo = useAtom(deleteTodoAtom)[1];
+    const { todos, toggleTodo, deleteTodo } = useContext(TodoContext);
+
     return (
         <div>
             <h2>Список завдань</h2>
@@ -22,8 +20,8 @@ const TodoList = () => {
                             className={`todo-text ${todo.completed ? 'completed' : ''}`}
                             onClick={() => toggleTodo(todo.id)}
                         >
-              {todo.task}
-            </span>
+                            {todo.task}
+                        </span>
                         <button onClick={() => deleteTodo(todo.id)}>Видалити</button>
                     </li>
                 ))}

@@ -1,9 +1,8 @@
-import React from 'react';
-import { useAtom } from 'jotai';
-import { todosWithPersistenceAtom } from '../store/todoAtoms';
+import React, { useContext } from 'react';
+import { TodoContext } from '../context/TodoContext';
 
 const StatsPage = () => {
-    const [todos] = useAtom(todosWithPersistenceAtom);
+    const { todos } = useContext(TodoContext);
 
     const total = todos.length;
     const completed = todos.filter((todo) => todo.completed).length;
