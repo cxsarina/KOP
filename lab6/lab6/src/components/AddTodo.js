@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { TodoContext } from '../context/TodoContext';
+import { motion } from 'framer-motion';
 
 const AddTodo = () => {
     const [task, setTask] = useState('');
@@ -28,7 +29,14 @@ const AddTodo = () => {
                     border: '1px solid #ddd',
                 }}
             />
-            <button type="submit">Додати</button>
+            <motion.button
+                type="submit"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+            >
+                Додати
+            </motion.button>
         </form>
     );
 };

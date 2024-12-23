@@ -1,5 +1,6 @@
 import React, { useContext, useCallback } from 'react';
 import { TodoContext } from '../context/TodoContext';
+import { motion } from 'framer-motion';
 
 const TodoList = () => {
     const { todos, toggleTodo, deleteTodo } = useContext(TodoContext);
@@ -17,7 +18,13 @@ const TodoList = () => {
             <h2>Список завдань</h2>
             <ul>
                 {todos.map((todo) => (
-                    <li key={todo.id}>
+                    <motion.li
+                        key={todo.id}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                    >
                         <input
                             type="checkbox"
                             checked={todo.completed}
@@ -31,7 +38,7 @@ const TodoList = () => {
                             {todo.task}
                         </span>
                         <button onClick={() => handleDelete(todo.id)}>Видалити</button>
-                    </li>
+                    </motion.li>
                 ))}
             </ul>
         </div>
@@ -39,4 +46,5 @@ const TodoList = () => {
 };
 
 export default TodoList;
+
 
