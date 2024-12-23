@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
-import './App.css';
+import './style/App.css';
 import ErrorBoundary from './components/ErrorBoundary';  // Додаємо імпорт
 
 const StatsPage = lazy(() => import('./components/StatsPage'));

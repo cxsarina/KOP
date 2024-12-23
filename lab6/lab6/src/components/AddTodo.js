@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { TodoContext } from '../context/TodoContext';
-import useDebounce from '../hooks/useDebounce'; 
+import useDebounce from '../hooks/useDebounce';
 
 const AddTodo = () => {
     const [task, setTask] = useState('');
