@@ -1,8 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useCallback } from 'react';
 import { TodoContext } from '../context/TodoContext';
 
 const TodoList = () => {
     const { todos, toggleTodo, deleteTodo } = useContext(TodoContext);
+
+    const handleToggle = useCallback((id) => {
+        toggleTodo(id);
+    }, [toggleTodo]);
+
+    const handleDelete = useCallback((id) => {
+        deleteTodo(id);
+    }, [deleteTodo]);
 
     return (
         <div>
@@ -13,16 +21,16 @@ const TodoList = () => {
                         <input
                             type="checkbox"
                             checked={todo.completed}
-                            onChange={() => toggleTodo(todo.id)}
+                            onChange={() => handleToggle(todo.id)}
                             style={{ marginRight: '10px' }}
                         />
                         <span
                             className={`todo-text ${todo.completed ? 'completed' : ''}`}
-                            onClick={() => toggleTodo(todo.id)}
+                            onClick={() => handleToggle(todo.id)}
                         >
                             {todo.task}
                         </span>
-                        <button onClick={() => deleteTodo(todo.id)}>Видалити</button>
+                        <button onClick={() => handleDelete(todo.id)}>Видалити</button>
                     </li>
                 ))}
             </ul>
@@ -31,3 +39,4 @@ const TodoList = () => {
 };
 
 export default TodoList;
+
